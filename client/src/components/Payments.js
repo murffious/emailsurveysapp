@@ -7,6 +7,7 @@ import * as actions from '../actions';
 class Payments extends Component {
   
   render() {
+    // Also use fro stripe key process.env.REACT_APP_STRIPE_KEY
     const STRIPE_PUBLISHABLE = process.env.NODE_ENV === 'production'
     ? 'pk_live_MY_PUBLISHABLE_KEY'
     : 'pk_test_4B4s8op5y7UbFFmNrG7IoLGi';
@@ -18,6 +19,7 @@ class Payments extends Component {
         amount={500}
         token={token => this.props.handleToken(token)}
         stripeKey={STRIPE_PUBLISHABLE}
+        
       >
         <button className="btn">
           Add Credits
