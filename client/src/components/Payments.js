@@ -9,7 +9,8 @@ class Payments extends Component {
   render() {
     // Also use fro stripe key process.env.REACT_APP_STRIPE_KEY
     const STRIPE_PUBLISHABLE = process.env.NODE_ENV === 'production'
-    ? 'pk_live_MY_PUBLISHABLE_KEY'
+    // use live key if going live 
+    ? 'pk_test_4B4s8op5y7UbFFmNrG7IoLGi'
     : 'pk_test_4B4s8op5y7UbFFmNrG7IoLGi';
     
     return (
