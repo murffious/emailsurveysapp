@@ -35,6 +35,7 @@ module.exports = app => {
       })
       .compact()
       .uniqBy('email', 'surveyId')
+      // for each one send a call to MongoDb to update records 
       .each(({ surveyId, email, choice }) => {
         Survey.updateOne(
           {
