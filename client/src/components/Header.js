@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Payments from './Payments';
+import './App.css';
 
 class Header extends Component {
   
@@ -11,7 +12,7 @@ class Header extends Component {
       case null:
         return;
       case false:
-        return <li><a href="/auth/google">Login With Google</a></li>;
+        return <div><li><a href="/auth/google"><i className="fa fa-sign-in" aria-hidden="true"></i>  Login With Google</a></li></div>;
       default:
         return [
           <li key="1"><Payments /></li>,
@@ -26,12 +27,12 @@ class Header extends Component {
   render() {
     return (
       <nav >
-        <div className="nav-wrapper">
+        <div className="nav-wrapper green accent-3">
           <Link
             to={this.props.auth ? '/surveys' : '/'}
-            className="left brand-logo"
+            className="left brand-logo nav-left"
           >
-          <i className="material-icons" >cloud</i> Your Bright Ideas
+          <i className="material-icons">group</i> Your Bright Ideas
           </Link>
           <ul className="right">
             {this.renderContent()}

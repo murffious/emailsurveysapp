@@ -24,9 +24,8 @@ module.exports = app => {
 
   app.post('/api/surveys/webhooks', (req, res) => {
     const p = new Path('/api/surveys/:surveyId/:choice');
-
+  // extract email and choice of click yes or no and get rid of edge cases and undefined
     _.chain(req.body)
-    // extract email and choice of click yes or no and get rid of edge cases and undefined
       .map(({ email, url }) => {
         const match = p.test(new URL(url).pathname);
         if (match) {
